@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    
+    [SerializeField] private GameObject bulletPrefab;
     private void OnCollisionEnter(Collision collision)
     {
-        gameObject.SetActive(false);
+        Debug.Log("Bullet collided with " + collision.gameObject.name);
+        bulletPrefab.SetActive(false);
     }
 }

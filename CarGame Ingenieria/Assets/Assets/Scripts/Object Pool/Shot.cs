@@ -24,8 +24,8 @@ public class Shot : MonoBehaviour
                 //GameObject newBullet;
                 //newBullet = Instanaciate(bullet,spawnPoint.position, spawnPoint.rotation);
                 GameObject bullet = BulletPool.Instance.bulletCall();
-                bullet.transform.position = transform.position;
-                bullet.transform.rotation = transform.rotation;
+                bullet.transform.position = spawnPoint.position;
+                bullet.transform.rotation = spawnPoint.rotation;
                 bullet.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * shotForce);
 
                 shotRateTime = Time.time + shotRate;
