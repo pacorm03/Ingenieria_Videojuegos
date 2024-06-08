@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 [CreateAssetMenu(fileName = "AbejaData", menuName = "ScriptableObjects/AbejaData", order = 1)]
 public class AbejaData : ScriptableObject
 {
-    public string textura;
-    public string modelo;
-    public GameObject modelo3D; // Referencia al modelo 3D
+    public GameObject modelo3D;
+    public float resistencia;
+    public float velocidad;
+    public int vidaInicial; // Nueva propiedad para la vida inicial de las abejas
 }

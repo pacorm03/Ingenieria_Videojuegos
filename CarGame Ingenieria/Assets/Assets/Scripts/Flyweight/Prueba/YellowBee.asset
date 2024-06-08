@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97fe871dbdaee0048bb0462812d3e844, type: 3}
-  m_Name: AbejaData
+  m_Name: YellowBee
   m_EditorClassIdentifier: 
-  textura: LALALA
-  modelo: MIMIMI
   modelo3D: {fileID: 919132149155446097, guid: bb88bb6a962e28c478fd51fe54b8c39b, type: 3}
+  resistencia: 2
+  velocidad: 10
+  vidaInicial: 2

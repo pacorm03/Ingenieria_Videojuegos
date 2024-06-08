@@ -2,11 +2,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine;
+
 public class Jugador : MonoBehaviour
 {
     public int maxVida = 5;
-    public GameObject[] corazones; // Asigna los GameObjects de los corazones desde el inspector
-    public Text contadorMonedasText; // Asigna el texto del contador desde el inspector
+    public GameObject[] corazones;
+    public Text contadorMonedasText;
 
     private int vidaActual;
     private int contadorMonedas = 0;
@@ -22,14 +24,7 @@ public class Jugador : MonoBehaviour
     {
         for (int i = 0; i < corazones.Length; i++)
         {
-            if (i < vidaActual)
-            {
-                corazones[i].SetActive(true);
-            }
-            else
-            {
-                corazones[i].SetActive(false);
-            }
+            corazones[i].SetActive(i < vidaActual);
         }
     }
 
@@ -41,7 +36,6 @@ public class Jugador : MonoBehaviour
             ActualizarCorazones();
             if (vidaActual <= 0)
             {
-                // Manejar la muerte del jugador, si es necesario
                 Debug.Log("El jugador ha muerto");
             }
         }
@@ -66,6 +60,12 @@ public class Jugador : MonoBehaviour
         if (other.CompareTag("Abeja"))
         {
             PerderVida();
+            MovimientoAbeja movimientoAbeja = other.GetComponent<MovimientoAbeja>();
+            if (movimientoAbeja != null)
+            {
+                movimientoAbeja.RecibirDanio(1); // O la cantidad de daño que debe recibir la abeja
+            }
         }
     }
 }
+

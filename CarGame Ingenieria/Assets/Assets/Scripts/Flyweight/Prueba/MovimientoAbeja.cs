@@ -1,25 +1,32 @@
-// MovimientoAbeja.cs
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovimientoAbeja : MonoBehaviour
 {
-    private float velocidad = 10;
+    public AbejaData abejaData; // Asignar desde el inspector o código
+    private float velocidad;
     private Transform jugador;
     private bool persiguiendo = false;
-
-    public void SetVelocidad(float nuevaVelocidad)
-    {
-        velocidad = nuevaVelocidad;
-    }
+    private int vida;
+    public Image barraDeVida; // Asignar el UI de la barra de vida desde el inspector
 
     void Start()
     {
         jugador = GameObject.FindWithTag("Player").transform; // Asegúrate de que el jugador tenga la etiqueta "Player"
+        if (abejaData != null)
+        {
+            velocidad = abejaData.velocidad;
+            vida = abejaData.vidaInicial;
+            ActualizarBarraDeVida();
+        }
+        else
+        {
+            Debug.LogError("AbejaData no está asignado.");
+        }
     }
 
     void Update()
     {
-        // Mover la abeja en la dirección deseada con la velocidad especificada
         if (persiguiendo)
         {
             PerseguirJugador();
@@ -29,19 +36,10 @@ public class MovimientoAbeja : MonoBehaviour
             Patrullar();
         }
 
-        // Rotar la abeja sobre su propio eje (eje Y en este caso)
         transform.Rotate(Vector3.up, 100 * Time.deltaTime); // Ajusta la velocidad de rotación según sea necesario
 
-        // Verificar distancia al jugador para cambiar comportamiento
         float distanciaAlJugador = Vector3.Distance(transform.position, jugador.position);
-        if (distanciaAlJugador < 10f)
-        {
-            persiguiendo = true;
-        }
-        else if (distanciaAlJugador > 10f)
-        {
-            persiguiendo = false;
-        }
+        persiguiendo = distanciaAlJugador < 10f;
     }
 
     void Patrullar()
@@ -53,6 +51,32 @@ public class MovimientoAbeja : MonoBehaviour
     {
         Vector3 direccion = (jugador.position - transform.position).normalized;
         transform.Translate(direccion * velocidad * Time.deltaTime);
+    }
+
+    public void RecibirDanio(int cantidad)
+    {
+        vida -= cantidad;
+        if (vida <= 0)
+        {
+            Morir();
+        }
+        else
+        {
+            ActualizarBarraDeVida();
+        }
+    }
+
+    void Morir()
+    {
+        Destroy(gameObject);
+    }
+
+    void ActualizarBarraDeVida()
+    {
+        if (barraDeVida != null)
+        {
+            barraDeVida.fillAmount = (float)vida / abejaData.vidaInicial;
+        }
     }
 
     void OnTriggerEnter(Collider other)
