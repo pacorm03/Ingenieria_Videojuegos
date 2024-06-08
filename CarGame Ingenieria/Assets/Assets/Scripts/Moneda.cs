@@ -13,6 +13,7 @@ public class Moneda : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //si el jugador recoge la moneda se destruye
         if (other.CompareTag("Player"))
         {
             Jugador jugador = other.GetComponent<Jugador>();
