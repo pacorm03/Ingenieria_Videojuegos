@@ -1,6 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public abstract class SceneStateManager : MonoBehaviour
+public class SceneStateManager : MonoBehaviour
 {
 
     //currentState
@@ -9,12 +12,25 @@ public abstract class SceneStateManager : MonoBehaviour
     public MenuInicioState menuInicioState = new MenuInicioState();
     public JuegoSceneState juegoSceneState = new JuegoSceneState();
 
+    Scene sceneJugar;
+    Scene sceneInicio;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        currentState = menuInicioState;
+        sceneJugar = SceneManager.GetSceneByBuildIndex(1);
 
+        if (sceneJugar.isLoaded)
+        {
+            currentState = juegoSceneState;
+        }
+        else
+        {
+            currentState = menuInicioState;
+        }
         currentState.EnterState(this);
+
     }
 
     // Update is called once per frame

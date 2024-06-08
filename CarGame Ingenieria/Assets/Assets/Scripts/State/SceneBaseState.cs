@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SceneBaseState : MonoBehaviour
+public abstract class SceneBaseState 
 {
     public abstract void EnterState(SceneStateManager scene);
 

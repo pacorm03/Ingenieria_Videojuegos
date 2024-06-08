@@ -1,31 +1,53 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuInicioState : SceneBaseState
 {
-    public Button botonJugar;
+    GameObject botonJugar;
+    Button botonJugarComp;
+
+    Scene sceneMenu;
+
+
     public override void EnterState(SceneStateManager scene)
     {
-        Console.WriteLine("Estado: Menu Inicio");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneMenu = SceneManager.GetSceneByBuildIndex(0);
+        Debug.Log("Estado: Menu Inicio");
+        if (sceneMenu.isLoaded)
+        {
+            Debug.Log("La escena ya está cargada");
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        botonJugar = GameObject.Find("BotonJugar");
+        if (botonJugar != null)
+        {
+            botonJugarComp = botonJugar.GetComponent<Button>();
+            botonJugarComp.onClick.AddListener(() => Exit(scene));
+        }
 
     }
 
     public override void UpdateState(SceneStateManager scene)
     {
-        if (botonJugar != null)
-        {
-            //botonJugar.onClick.AddListener(scene.SetState(scene.juegoSceneState));
-        }
-       
+
     }
 
     public override void Exit(SceneStateManager scene)
     {
+        if (botonJugarComp != null)
+        {
+            botonJugarComp.onClick.RemoveListener(() => Exit(scene));
+        }
+        Debug.Log("Saliendo de estado Menu Inicio");
+        scene.SetState(scene.juegoSceneState);
 
     }
+
+
 }
