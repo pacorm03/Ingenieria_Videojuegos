@@ -182,7 +182,7 @@ MonoBehaviour:
   - {fileID: 423678384}
   - {fileID: 423678383}
   torque: 250
-  steeringMax: 50
+  steeringMax: 35
   decelerationRate: 300
 --- !u!1 &113682621
 GameObject:
