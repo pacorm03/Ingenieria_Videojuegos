@@ -5,11 +5,13 @@ using Patterns.Observer.Interfaces;
 using Unity.VisualScripting;
 using TMPro;
 using System.Linq;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour, IObserver<float>
 {
     public int maxVida;
     public GameObject[] corazones; //array para gestionar la visibilidad de los corazones
+    public Text contadorMonedasText; // Asigna el texto del contador desde el inspector
     private JugadorObserver jugadorObserver;
     private void Awake()
     {
@@ -22,7 +24,7 @@ public class UI : MonoBehaviour, IObserver<float>
         
     }
     //metodo para actualizar la UI
-    public void UpdateObserver(float data) //recibe el valor de la vida
+    public void UpdateObserver(float data, float data1) //recibe el valor de la vida
     {
         
         for (int i = 0; i < maxVida; i++) 
@@ -31,6 +33,11 @@ public class UI : MonoBehaviour, IObserver<float>
             corazones[i].SetActive(i < data);
             Debug.Log("Observer actualizado");
         }
+        if (contadorMonedasText != null)//actualizar contadador de monedas
+        {
+            contadorMonedasText.text = "Monedas: " + data1.ToString();
+        }
+
     }
 
 }

@@ -9,6 +9,7 @@ TagManager:
   - path
   - AI
   - Abeja
+  - Moneda
   layers:
   - Default
   - TransparentFX

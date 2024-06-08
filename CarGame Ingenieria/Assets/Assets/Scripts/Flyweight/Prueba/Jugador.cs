@@ -1,3 +1,4 @@
+// Jugador.cs
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,12 +6,16 @@ public class Jugador : MonoBehaviour
 {
     public int maxVida = 5;
     public GameObject[] corazones; // Asigna los GameObjects de los corazones desde el inspector
+    public Text contadorMonedasText; // Asigna el texto del contador desde el inspector
+
     private int vidaActual;
+    private int contadorMonedas = 0;
 
     void Start()
     {
         vidaActual = maxVida;
         ActualizarCorazones();
+        ActualizarContadorMonedas();
     }
 
     void ActualizarCorazones()
@@ -39,6 +44,20 @@ public class Jugador : MonoBehaviour
                 // Manejar la muerte del jugador, si es necesario
                 Debug.Log("El jugador ha muerto");
             }
+        }
+    }
+
+    public void RecogerMoneda()
+    {
+        contadorMonedas++;
+        ActualizarContadorMonedas();
+    }
+
+    void ActualizarContadorMonedas()
+    {
+        if (contadorMonedasText != null)
+        {
+            contadorMonedasText.text = "Monedas: " + contadorMonedas.ToString();
         }
     }
 
