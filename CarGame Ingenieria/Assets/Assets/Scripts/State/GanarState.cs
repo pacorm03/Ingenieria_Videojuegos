@@ -3,28 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.SearchService;
-
-public class PausaState : SceneBaseState
+public class GanarState : SceneBaseState
 {
-    GameObject menuPausa;
 
     GameObject botonVolver;
     Button botonVolverComp;
+
     GameObject botonMenuPrincipal;
     Button botonMenuPrincipalComp;
 
+
+
+
+    Scene sceneFinal;
+
     public override void EnterState(SceneStateManager scene)
     {
-        Debug.Log("Estado: Menu Pausa");
-        Time.timeScale = 0; // Congelar la escena
-
-        menuPausa = GameObject.Find("MenuPausa");
-        menuPausa.SetActive(true);
-        //Reanudar
-        if(botonVolver == null )
+        Debug.Log("Estado: Ganar");
+        sceneFinal = SceneManager.GetSceneByBuildIndex(3);
+        if (sceneFinal.isLoaded)
         {
-            botonVolver = GameObject.Find("BotonVolver");
+            Debug.Log("La escena ya está cargada");
+
+        }
+        else
+        {
+            SceneManager.LoadScene(3);
+        }
+        Debug.Log("Estado: Menu Ganar");
+        
+        //Reanudar
+        if (botonVolver == null)
+        {
+            botonVolver = GameObject.Find("BotonJugar");
         }
         if (botonVolver != null)
         {
@@ -52,7 +63,6 @@ public class PausaState : SceneBaseState
 
     public override void Exit(SceneStateManager scene)
     {
-        Time.timeScale = 1; // Reanudar la escena
 
         //Reanudar
         if (botonVolverComp != null)
@@ -71,14 +81,15 @@ public class PausaState : SceneBaseState
 
     void ReanudarJuego(SceneStateManager scene)
     {
-        Debug.Log("Saliendo de pausa");
+
+        Debug.Log("Saliendo de ganar");
         Exit(scene);
         scene.SetState(scene.juegoSceneState);
     }
 
     void IrAlMenuPrincipal(SceneStateManager scene)
     {
-        Debug.Log("Saliendo de pausa");
+        Debug.Log("Saliendo de ganar");
         Exit(scene);
         scene.SetState(scene.menuInicioState);
     }

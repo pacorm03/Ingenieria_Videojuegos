@@ -11,7 +11,7 @@ public class JugadorObserver : MonoBehaviour, ISubject <float>
     public float tiempoDeEspera = 2; //tiempo que espera para volver a detectar la colision 
                                   // para que el jugador tenga tiempo para reaccionar antes de que le quite mas corazones el mismo enemigo
     public float tiempoTranscurrido;
-    private int contadorMonedas = 0;
+    public int contadorMonedas = 0;
 
 
     void Start()
