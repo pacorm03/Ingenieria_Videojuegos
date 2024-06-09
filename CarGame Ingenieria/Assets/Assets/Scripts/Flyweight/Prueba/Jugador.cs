@@ -1,8 +1,6 @@
-// Jugador.cs
 using UnityEngine;
 using UnityEngine.UI;
 
-using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
@@ -63,7 +61,7 @@ public class Jugador : MonoBehaviour
             MovimientoAbeja movimientoAbeja = other.GetComponent<MovimientoAbeja>();
             if (movimientoAbeja != null)
             {
-                movimientoAbeja.RecibirDanio(1); // O la cantidad de daño que debe recibir la abeja
+                movimientoAbeja.RecibirDanio(1); // cada vez que te pica pierde 1 de vida
             }
         }
     }

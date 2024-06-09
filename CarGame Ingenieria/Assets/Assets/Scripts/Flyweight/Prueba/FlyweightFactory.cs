@@ -6,9 +6,7 @@ using UnityEngine;
 public class FlyweightFactory
 {
     private Dictionary<AbejaData, IAbejaFlyweight> flyweights = new Dictionary<AbejaData, IAbejaFlyweight>();
-
-    
-    /*
+   
     public IAbejaFlyweight GetAbejaFlyweight(AbejaData data)
     {
         if (!flyweights.ContainsKey(data))
@@ -18,6 +16,5 @@ public class FlyweightFactory
 
         return flyweights[data];
     }
-
-    */
+  
 }
