@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771cc1b505fbbd6428d2159c8c22d4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4852322491696696020, guid: d8120df13f1249b418bed63d22dbbb02, type: 3}
-  poolSize: 20
+  bulletPrefab: {fileID: 1916685415048215826, guid: dfbb08fec80e0ac4ca9f8efa96750a0a, type: 3}
+  poolSize: 5
   bulletsList: []
 --- !u!4 &52305132
 Transform:
@@ -578,50 +578,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33b9922c608d3264198473f3af43d6b3, type: 3}
---- !u!1 &1188092655
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1188092657}
-  - component: {fileID: 1188092656}
-  m_Layer: 0
-  m_Name: ObjectPoolManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1188092656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188092655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2992c330d63a10846bc0d96b3f72e4bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1188092657
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188092655}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -189.56421, y: -2038.3762, z: -507.3995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1213733711 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4772350309165202811, guid: dc8119cc6d183dd48b36c0c9ebd46710, type: 3}
@@ -736,6 +692,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1479577188782790614, guid: d80684ad88c224742bbeeeb4d285bf43, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1916685415048215826, guid: dfbb08fec80e0ac4ca9f8efa96750a0a, type: 3}
+    - target: {fileID: 1479577188782790614, guid: d80684ad88c224742bbeeeb4d285bf43, type: 3}
+      propertyPath: shotForce
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 1479577188782790614, guid: d80684ad88c224742bbeeeb4d285bf43, type: 3}
       propertyPath: spawnPoint
       value: 
