@@ -17,6 +17,8 @@ public class PausaState : SceneBaseState
     public override void EnterState(SceneStateManager scene)
     {
         Debug.Log("Estado: Menu Pausa");
+        Time.timeScale = 0; // Congelar la escena
+
         menuPausa = GameObject.Find("MenuPausa");
         menuPausa.SetActive(true);
         //Reanudar
@@ -50,6 +52,8 @@ public class PausaState : SceneBaseState
 
     public override void Exit(SceneStateManager scene)
     {
+        Time.timeScale = 1; // Reanudar la escena
+
         //Reanudar
         if (botonVolverComp != null)
         {
