@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float lifeTime = 2f; // Duración de vida de la bala en segundos
+    private float lifeTime = 5f; // Duración de vida de la bala en segundos
     private Coroutine lifeTimerCoroutine;
 
     private void OnEnable()

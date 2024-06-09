@@ -6,6 +6,7 @@ public class Manager : MonoBehaviour
 {
     public Text countdownText; // El texto de la UI para mostrar la cuenta atrás
     public GameObject playerCar; // El coche del jugador
+    public GameObject temporizador; 
 
     private Controller playerController;
 
@@ -28,6 +29,7 @@ public class Manager : MonoBehaviour
 
         countdownText.text = "GO!";
         playerController.enabled = true; // Activa el control del coche
+        temporizador.SetActive(true);
 
         yield return new WaitForSeconds(1);
         countdownText.gameObject.SetActive(false); // Oculta el texto de la cuenta atrás

@@ -10,10 +10,12 @@ public class Shot : MonoBehaviour
 
     private float shotRateTime = 0f; // Tiempo entre disparos
     private Camera mainCamera; // Referencia a la cámara principal
+    private Rigidbody carRigidbody; // Referencia al Rigidbody del coche
 
     void Start()
     {
         mainCamera = Camera.main; // Inicializa la cámara principal
+        carRigidbody = GetComponent<Rigidbody>(); // Obtén el Rigidbody del coche
     }
 
     void Update()
@@ -35,9 +37,13 @@ public class Shot : MonoBehaviour
             Vector3 targetPosition = hitInfo.point; // La posición donde el rayo colisiona con un objeto
             Vector3 direction = targetPosition - spawnPoint.position; // Calcula la dirección desde el punto de generación hacia el objetivo
             direction.y = 0; // Opcional: Mantén la dirección en un plano horizontal
-            spawnPoint.forward = direction; // Ajusta la orientación del punto de generación
+            // Ajusta la dirección para tener en cuenta la velocidad del coche
+            direction += carRigidbody.velocity * (direction.magnitude / shotForce);
+
+            spawnPoint.forward = direction.normalized; // Normaliza y ajusta la orientación del punto de generación
         }
     }
+    
 
     void Shoot()
     {
@@ -48,7 +54,8 @@ public class Shot : MonoBehaviour
             bullet.transform.rotation = spawnPoint.rotation; // Alinea la rotación de la bala con la del punto de generación
             bullet.SetActive(true); // Activa la bala
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            rb.velocity = spawnPoint.forward * shotForce * Time.fixedDeltaTime; // Asigna una velocidad constante a la bala
+            // Ajusta la velocidad de la bala según la velocidad del coche y la fuerza de disparo
+            rb.velocity = spawnPoint.forward * (carRigidbody.velocity.magnitude + shotForce) * Time.fixedDeltaTime;
 
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.ResetLifeTimer(); // Reinicia el temporizador de vida
