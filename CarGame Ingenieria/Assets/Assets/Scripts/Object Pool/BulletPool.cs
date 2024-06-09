@@ -4,7 +4,7 @@ using UnityEngine;
 public class BulletPool : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private int poolSize = 20; //numero de objetos en el objectpool
+    [SerializeField] private int poolSize = 5; //numero de objetos en el objectpool
     [SerializeField] private List<GameObject> bulletsList; //lista de objetos del object pull
 
     private static BulletPool instance;
@@ -26,7 +26,7 @@ public class BulletPool : MonoBehaviour
     }
     void Start()
     {
-        //Añado los lasers al pool
+        //Añado las balas al pool
         AddBulletsToPool(poolSize);
     }
 
