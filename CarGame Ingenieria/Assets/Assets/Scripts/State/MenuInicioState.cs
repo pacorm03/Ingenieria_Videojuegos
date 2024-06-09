@@ -45,7 +45,7 @@ public class MenuInicioState : SceneBaseState
             botonJugarComp.onClick.RemoveListener(() => Exit(scene));
         }
         Debug.Log("Saliendo de estado Menu Inicio");
-        scene.SetState(scene.juegoSceneState);
+        scene.SetState(scene.explicacionState);
 
     }
 

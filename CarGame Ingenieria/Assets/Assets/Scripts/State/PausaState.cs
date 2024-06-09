@@ -8,7 +8,6 @@ using UnityEditor.SearchService;
 public class PausaState : SceneBaseState
 {
     GameObject menuPausa;
-    //bool isPaused;
     GameObject botonVolver;
     Button botonVolverComp;
 
@@ -63,8 +62,7 @@ public class PausaState : SceneBaseState
         {
             botonMenuPrincipalComp.onClick.RemoveListener(() => Exit(scene));
         }
-        //Boton reanudar = JuegoSceneState
-        //Boton salir = MeniInicioState
+
     }
 
     void ReanudarJuego(SceneStateManager scene)

@@ -11,19 +11,26 @@ public class SceneStateManager : MonoBehaviour
     public PausaState pausaState = new PausaState();
     public MenuInicioState menuInicioState = new MenuInicioState();
     public JuegoSceneState juegoSceneState = new JuegoSceneState();
+    public ExplicacionState explicacionState = new ExplicacionState();
 
     Scene sceneJugar;
     Scene sceneInicio;
-
+    Scene sceneExplicacion;
 
     // Start is called before the first frame update
     void Start()
     {
         sceneJugar = SceneManager.GetSceneByBuildIndex(1);
+        sceneExplicacion = SceneManager.GetSceneByBuildIndex(2);
+
 
         if (sceneJugar.isLoaded)
         {
             currentState = juegoSceneState;
+        }
+        else if(sceneExplicacion.isLoaded)
+        {
+            currentState = explicacionState;
         }
         else
         {
