@@ -12,12 +12,14 @@ public class JugadorObserver : MonoBehaviour, ISubject <float>
                                   // para que el jugador tenga tiempo para reaccionar antes de que le quite mas corazones el mismo enemigo
     public float tiempoTranscurrido;
     public int contadorMonedas = 0;
-
+    private Timer timer; // Referencia al temporizador
 
     void Start()
     {
         vidaActual = maxVida;
-        
+        timer = Timer.Instance; // Obtener instancia del temporizador
+        timer.ReiniciarTimer(); // Reiniciar el temporizador al inicio
+
     }
     void Update()
     {
@@ -50,6 +52,20 @@ public class JugadorObserver : MonoBehaviour, ISubject <float>
             Destroy(moneda);
         }
     }
+    void TerminarJuego()
+    {
+        // Aquí puedes agregar cualquier acción que desees realizar al finalizar el juego
+        timer.DetenerTimer(); // Detener el temporizador
+        MostrarResultado();
+        NotifyObservers(); // Notificar a los observadores
+    }
+
+    void MostrarResultado()
+    {
+        float tiempo = timer.TiempoTranscurrido();
+        Debug.Log($"El juego ha terminado en {tiempo} segundos.");
+    }
+
     //DETECTOR DE COLISIONES
     public void OnTriggerEnter(Collider other)
     {
@@ -93,7 +109,7 @@ public class JugadorObserver : MonoBehaviour, ISubject <float>
         {
             Debug.Log("actualizado en jugadorObserver");
             //verifica hay algun observador en la lista, si lo hay, le pasa el valor de la vida que va actualizandose
-            observer?.UpdateObserver(vidaActual, contadorMonedas);
+            observer?.UpdateObserver(vidaActual, contadorMonedas, timer.TiempoTranscurrido());
         }
 
     }

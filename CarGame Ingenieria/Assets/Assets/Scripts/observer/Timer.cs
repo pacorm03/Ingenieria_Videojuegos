@@ -43,9 +43,5 @@ public class Timer : MonoBehaviour
         juegoTerminado = true;
     }
 
-    // Implementación del método de actualización del observador
-    public void UpdateObserver(float data, float data1)
-    {
-        // No necesitamos hacer nada en este método para el temporizador
-    }
+  
 }
