@@ -11,6 +11,11 @@ public class MovimientoAbeja2 : MonoBehaviour
         velocidad = nuevaVelocidad;
     }
 
+    public void SetValues()
+    {
+
+    }
+
     void Start()
     {
         jugador = GameObject.FindWithTag("Player").transform; // Asegúrate de que el jugador tenga la etiqueta "Player"

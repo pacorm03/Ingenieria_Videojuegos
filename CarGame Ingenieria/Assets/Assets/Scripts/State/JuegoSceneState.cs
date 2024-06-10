@@ -53,7 +53,7 @@ public class JuegoSceneState : SceneBaseState
             scene.SetState(scene.perderState);
         }
         //Si se consiguen todas las monedas = ganar
-        if(jugadorComp.contadorMonedas == 5)
+        if(jugadorComp.contadorMonedas == 50)
         {
             Exit(scene);
             scene.SetState(scene.ganarState);

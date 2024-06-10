@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Juego : MonoBehaviour
 {
-    public AbejaData[] abejasData; // Asigna esto desde el inspector en Unity.
-    private FlyweightFactory factory = new FlyweightFactory();
+    public AbejaDataSO[] abejasData; // Asigna esto desde el inspector en Unity.
+    //private FlyweightFactory factory = new FlyweightFactory();
 
     //public void CrearAbeja(AbejaData data, Vector3 posicion, float velocidad)
     //{

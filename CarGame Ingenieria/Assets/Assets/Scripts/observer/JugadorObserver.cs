@@ -78,10 +78,12 @@ public class JugadorObserver : MonoBehaviour, ISubject <float>
         if (other.CompareTag("Abeja")) //si choca con la abeja pierde vida
         {   
             Debug.Log("choque detectado");
+            
             if (Time.time - tiempoTranscurrido >= tiempoDeEspera)
             {
                 
                 PerderVida();
+                Debug.Log("menos  una vida");
                 tiempoTranscurrido = Time.time; //actualizar el tiempo transcurrido
             }
                 
