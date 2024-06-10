@@ -14,15 +14,17 @@ public class PausaState : SceneBaseState
     GameObject botonMenuPrincipal;
     Button botonMenuPrincipalComp;
 
+    SceneStateManager context;
     public override void EnterState(SceneStateManager scene)
     {
+        context = scene;
         Debug.Log("Estado: Menu Pausa");
         Time.timeScale = 0; // Congelar la escena
 
         menuPausa = GameObject.Find("MenuPausa");
-        menuPausa.SetActive(true);
+        menuPausa.GetComponent<Opciones>().ActivarPausa(true);
         //Reanudar
-        if(botonVolver == null )
+        if (botonVolver == null )
         {
             botonVolver = GameObject.Find("BotonVolver");
         }
@@ -30,7 +32,7 @@ public class PausaState : SceneBaseState
         {
 
             botonVolverComp = botonVolver.GetComponent<Button>();
-            botonVolverComp.onClick.AddListener(() => ReanudarJuego(scene));
+            botonVolverComp.onClick.AddListener(ReanudarJuego);
         }
         //Salir
         if (botonMenuPrincipal == null)
@@ -41,7 +43,7 @@ public class PausaState : SceneBaseState
         {
 
             botonMenuPrincipalComp = botonMenuPrincipal.GetComponent<Button>();
-            botonMenuPrincipalComp.onClick.AddListener(() => IrAlMenuPrincipal(scene));
+            botonMenuPrincipalComp.onClick.AddListener(IrAlMenuPrincipal);
         }
 
     }
@@ -57,29 +59,28 @@ public class PausaState : SceneBaseState
         //Reanudar
         if (botonVolverComp != null)
         {
-            botonVolverComp.onClick.RemoveListener(() => Exit(scene));
+            botonVolverComp.onClick.RemoveListener(ReanudarJuego);
         }
 
 
         //Salir
         if (botonMenuPrincipalComp != null)
         {
-            botonMenuPrincipalComp.onClick.RemoveListener(() => Exit(scene));
+            botonMenuPrincipalComp.onClick.RemoveListener(IrAlMenuPrincipal);
         }
-
+        menuPausa = GameObject.Find("MenuPausa");
+        menuPausa.GetComponent<Opciones>().ActivarPausa(false);
     }
 
-    void ReanudarJuego(SceneStateManager scene)
+    void ReanudarJuego()
     {
         Debug.Log("Saliendo de pausa");
-        Exit(scene);
-        scene.SetState(scene.juegoSceneState);
+        context.SetState(new JuegoSceneState());
     }
 
-    void IrAlMenuPrincipal(SceneStateManager scene)
+    void IrAlMenuPrincipal()
     {
         Debug.Log("Saliendo de pausa");
-        Exit(scene);
-        scene.SetState(scene.menuInicioState);
+        context.SetState(new MenuInicioState());
     }
 }

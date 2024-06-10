@@ -12,11 +12,13 @@ public class ExplicacionState : SceneBaseState
     GameObject botonVolver;
     Button botonVolverComp;
     Scene sceneExplicacion;
+    SceneStateManager context;
 
 
     public override void EnterState(SceneStateManager scene)
     {
         sceneExplicacion = SceneManager.GetSceneByBuildIndex(2);
+        context = scene;
         if (sceneExplicacion.isLoaded)
         {
             Debug.Log("La escena ya está cargada");
@@ -37,7 +39,7 @@ public class ExplicacionState : SceneBaseState
         {
 
             botonVolverComp = botonVolver.GetComponent<Button>();
-            botonVolverComp.onClick.AddListener(() => ComenzarJuego(scene));
+            botonVolverComp.onClick.AddListener(ComenzarJuego);
         }
 
     }
@@ -51,16 +53,16 @@ public class ExplicacionState : SceneBaseState
         //Comenzar
         if (botonVolverComp != null)
         {
-            botonVolverComp.onClick.RemoveListener(() => Exit(scene));
+            botonVolverComp.onClick.RemoveListener(ComenzarJuego);
         }
 
     }
 
-    void ComenzarJuego(SceneStateManager scene)
+
+    void ComenzarJuego()
     {
         Debug.Log("Saliendo de explicacion");
-        Exit(scene);
-        scene.SetState(scene.juegoSceneState);
+        context.SetState(new JuegoSceneState());
     }
 
 }

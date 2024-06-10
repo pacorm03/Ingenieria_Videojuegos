@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,10 +8,12 @@ public class MenuInicioState : SceneBaseState
     Button botonJugarComp;
 
     Scene sceneMenu;
+    SceneStateManager context;
 
-
+    //Instanciar estados y llamar setstate
     public override void EnterState(SceneStateManager scene)
     {
+        context = scene;
         sceneMenu = SceneManager.GetSceneByBuildIndex(0);
         Debug.Log("Estado: Menu Inicio");
         if (sceneMenu.isLoaded)
@@ -28,7 +29,7 @@ public class MenuInicioState : SceneBaseState
         if (botonJugar != null)
         {
             botonJugarComp = botonJugar.GetComponent<Button>();
-            botonJugarComp.onClick.AddListener(() => Exit(scene));
+            botonJugarComp.onClick.AddListener(CargarJuego);
         }
 
     }
@@ -38,14 +39,19 @@ public class MenuInicioState : SceneBaseState
 
     }
 
+    void CargarJuego()
+    {
+        Debug.Log("Click en cargar juegos");
+        context.SetState(new JuegoSceneState());
+    }
+
     public override void Exit(SceneStateManager scene)
     {
         if (botonJugarComp != null)
         {
-            botonJugarComp.onClick.RemoveListener(() => Exit(scene));
+            botonJugarComp.onClick.RemoveListener(CargarJuego);
         }
         Debug.Log("Saliendo de estado Menu Inicio");
-        scene.SetState(scene.explicacionState);
 
     }
 

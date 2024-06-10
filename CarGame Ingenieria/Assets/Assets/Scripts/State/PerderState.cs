@@ -83,14 +83,12 @@ public class PerderState : SceneBaseState
     {
 
         Debug.Log("Saliendo de perder");
-        Exit(scene);
-        scene.SetState(scene.juegoSceneState);
+        scene.SetState(new JuegoSceneState());
     }
 
     void IrAlMenuPrincipal(SceneStateManager scene)
     {
         Debug.Log("Saliendo de perder");
-        Exit(scene);
-        scene.SetState(scene.menuInicioState);
+        scene.SetState(new MenuInicioState());
     }
 }

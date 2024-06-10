@@ -14,26 +14,15 @@ public class AbejaFlyweight : MonoBehaviour
     public float ataque = 1;
 
     // Extrinseco
-    public float distanciaAlcance;
-    public float vida;
+    //public float distanciaAlcance;
+    //public float vida;
 
-    public void SetValues()
-    {
-        if (extrinseco != null)
-        {
-            distanciaAlcance = extrinseco.distanciaAlcance;
-            vida = extrinseco.vida;
-        }
-        else
-        {
-            Debug.LogWarning("El ScriptableObject extrinseco no está asignado.");
-        }
-    }
+    
 
     void Start()
     {
         jugador = GameObject.FindWithTag("Player").transform; // Asegúrate de que el jugador tenga la etiqueta "Player"
-        SetValues(); // Llama a SetValues para inicializar los valores extrínsecos
+        //SetValues(); // Llama a SetValues para inicializar los valores extrínsecos
     }
 
     void Update()
@@ -50,11 +39,11 @@ public class AbejaFlyweight : MonoBehaviour
         transform.Rotate(Vector3.up, 100 * Time.deltaTime); // Ajusta la velocidad de rotación según sea necesario
 
         float distanciaAlJugador = Vector3.Distance(transform.position, jugador.position);
-        if (distanciaAlJugador < distanciaAlcance)
+        if (distanciaAlJugador < extrinseco.distanciaAlcance)
         {
             persiguiendo = true;
         }
-        else if (distanciaAlJugador > distanciaAlcance)
+        else if (distanciaAlJugador > extrinseco.distanciaAlcance)
         {
             persiguiendo = false;
         }
@@ -92,11 +81,11 @@ public class AbejaFlyweight : MonoBehaviour
 
     void PerderVida()
     {
-        vida--;
-        if (vida <= 0)
-        {
-            Morir();
-        }
+        //extrinseco.vida--;
+        //if (extrinseco.vida <= 0)
+        //{
+        //    Morir();
+        //}
     }
 
     void Morir()

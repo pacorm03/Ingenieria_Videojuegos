@@ -14,25 +14,13 @@ public class JuegoSceneState : SceneBaseState
     {
         sceneJugar = SceneManager.GetSceneByBuildIndex(1);
         Debug.Log("Estado: Juego");
-        
-        jugador = GameObject.Find("Player");
-        jugadorComp = jugador.GetComponent<JugadorObserver>();
-        if (sceneJugar.isLoaded)
-        {
-            Debug.Log("La escena ya está cargada");
-            if(menuPausa == null)
-            {
-                menuPausa = GameObject.Find("MenuPausa");
-            }
-            menuPausa.SetActive(false);
 
-
-        }
-        else
+        if(!sceneJugar.isLoaded)
         {
+            SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.LoadScene(1);
+            
         }
-
 
     }
 
@@ -40,23 +28,21 @@ public class JuegoSceneState : SceneBaseState
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Exit(scene);
-            scene.SetState(scene.pausaState);
-
+            scene.SetState(new PausaState());
         }
         //Exit
-
-        //Si no hay vida = Perder
-        if (jugadorComp.vidaActual == 0)
+        if (sceneJugar.isLoaded)
         {
-            Exit(scene);
-            scene.SetState(scene.perderState);
-        }
-        //Si se consiguen todas las monedas = ganar
-        if(jugadorComp.contadorMonedas == 50)
-        {
-            Exit(scene);
-            scene.SetState(scene.ganarState);
+            //Si no hay vida = Perder
+            if (jugadorComp.vidaActual == 0)
+            {
+                scene.SetState(new PerderState());
+            }
+            //Si se consiguen todas las monedas = ganar
+            if (jugadorComp.contadorMonedas == 50)
+            {
+                scene.SetState(new GanarState());
+            }
         }
 
     }
@@ -64,7 +50,17 @@ public class JuegoSceneState : SceneBaseState
     public override void Exit(SceneStateManager scene)
     {
         Debug.Log("Saliendo de estado Juego");
-        menuPausa.SetActive(true);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        //menuPausa.SetActive(true);
         // Pulsar esc = PausaState
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log($"La escena {scene.name} ya está cargada");
+        jugador = GameObject.Find("Player");
+        jugadorComp = jugador.GetComponent<JugadorObserver>();
+
+
     }
 }

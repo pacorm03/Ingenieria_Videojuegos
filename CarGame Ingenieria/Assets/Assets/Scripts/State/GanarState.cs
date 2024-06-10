@@ -82,15 +82,13 @@ public class GanarState : SceneBaseState
     void ReanudarJuego(SceneStateManager scene)
     {
 
-        Debug.Log("Saliendo de ganar");
-        Exit(scene);
-        scene.SetState(scene.juegoSceneState);
+        Debug.Log("Saliendo de perder");
+        scene.SetState(new JuegoSceneState());
     }
 
     void IrAlMenuPrincipal(SceneStateManager scene)
     {
-        Debug.Log("Saliendo de ganar");
-        Exit(scene);
-        scene.SetState(scene.menuInicioState);
+        Debug.Log("Saliendo de perder");
+        scene.SetState(new MenuInicioState());
     }
 }

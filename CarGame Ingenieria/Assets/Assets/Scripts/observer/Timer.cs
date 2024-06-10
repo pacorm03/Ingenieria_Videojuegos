@@ -1,18 +1,20 @@
+using Patterns.Observer.Interfaces;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+public class Timer : MonoBehaviour, ISubject<float>
 {
     private static Timer instance;
     private float tiempoTranscurrido = 0f;
     private bool juegoTerminado = false;
 
-    public static Timer Instance
+    public Timer Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = new GameObject("Timer").AddComponent<Timer>();
+                instance = this;
                 DontDestroyOnLoad(instance.gameObject);
             }
             return instance;
@@ -43,5 +45,18 @@ public class Timer : MonoBehaviour
         juegoTerminado = true;
     }
 
-  
+    public void AddObserver(IObserver<float> observer)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void RemoveObserver(IObserver<float> observer)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void NotifyObservers()
+    {
+        throw new System.NotImplementedException();
+    }
 }

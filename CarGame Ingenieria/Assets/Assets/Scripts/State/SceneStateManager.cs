@@ -3,65 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneStateManager : MonoBehaviour
+public class SceneStateManager 
 {
 
     //currentState
     SceneBaseState currentState;
-    public PausaState pausaState = new PausaState();
-    public MenuInicioState menuInicioState = new MenuInicioState();
-    public JuegoSceneState juegoSceneState = new JuegoSceneState();
-    public ExplicacionState explicacionState = new ExplicacionState();
-    public GanarState ganarState = new GanarState();
-    public PerderState perderState = new PerderState();
-
-    Scene sceneJugar;
-    Scene sceneInicio;
-    Scene sceneExplicacion;
-    Scene sceneGanar;
-    Scene scenePerder;
 
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        sceneJugar = SceneManager.GetSceneByBuildIndex(1);
-        sceneExplicacion = SceneManager.GetSceneByBuildIndex(2);
-        sceneGanar = SceneManager.GetSceneByBuildIndex(3);
-        scenePerder = SceneManager.GetSceneByBuildIndex(4);
+        MenuInicioState menuInicioState = new MenuInicioState();
 
-
-
-        if (sceneJugar.isLoaded)
-        {
-            currentState = juegoSceneState;
-        }
-        else if(sceneExplicacion.isLoaded)
-        {
-            currentState = explicacionState;
-        }
-        else if(sceneGanar.isLoaded)
-        {
-            currentState = ganarState;
-        }else if (scenePerder.isLoaded)
-        {
-            currentState = perderState;
-        }
-        else{
-            currentState = menuInicioState;
-        }
-        currentState.EnterState(this);
-
+        SetState(menuInicioState);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         currentState.UpdateState(this);
     }
 
     public void SetState(SceneBaseState state)
     {
+        Debug.Log($"Cambiando al estado {state}");
+        if(currentState != null)
+        {
+            currentState.Exit(this);
+        }
         currentState = state;
         state.EnterState(this);
     }

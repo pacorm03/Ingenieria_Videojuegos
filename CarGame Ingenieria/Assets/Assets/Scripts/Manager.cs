@@ -1,9 +1,13 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
+    
+
+
     public Text countdownText; // El texto de la UI para mostrar la cuenta atrás
     public GameObject playerCar; // El coche del jugador
     public GameObject temporizador; 
@@ -15,8 +19,10 @@ public class Manager : MonoBehaviour
         playerController = playerCar.GetComponent<Controller>();
         playerController.enabled = false; // Desactiva el control del coche al principio
         StartCoroutine(CountdownStart());
+        
     }
 
+  
     IEnumerator CountdownStart()
     {
         int countdown = 3; // Tiempo inicial de la cuenta atrás

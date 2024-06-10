@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Bullet collided with " + collision.gameObject.name);
-        gameObject.SetActive(false); // Desactiva la bala al colisionar
+        BulletPool.Instance.bulletRelease(gameObject); // Desactiva la bala al colisionar
     }
 
     public void ResetLifeTimer()
@@ -30,6 +30,6 @@ public class Bullet : MonoBehaviour
     private IEnumerator LifeTimer()
     {
         yield return new WaitForSeconds(lifeTime); // Espera el tiempo de vida
-        gameObject.SetActive(false); // Desactiva la bala después del tiempo de vida
+        BulletPool.Instance.bulletRelease(gameObject); // Desactiva la bala después del tiempo de vida
     }
 }

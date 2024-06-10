@@ -60,7 +60,7 @@ public class JugadorObserver : MonoBehaviour, ISubject <float>
     }
     void TerminarJuego()
     {
-        // Aquí puedes agregar cualquier acción que desees realizar al finalizar el juego
+        
         timer.DetenerTimer(); // Detener el temporizador
         MostrarResultado();
         NotifyObservers(); // Notificar a los observadores

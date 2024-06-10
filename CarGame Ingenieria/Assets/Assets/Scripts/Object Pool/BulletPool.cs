@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class BulletPool : MonoBehaviour
 {
+    // MEMORIA
+    // lista
+    // pedir objetos al pool
+    // devolver objetos
+    //inicializacion
+    //politica de crecimiento 
+
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private int poolSize = 5; //numero de objetos en el objectpool
     [SerializeField] private List<GameObject> bulletsList; //lista de objetos del object pull
@@ -56,10 +63,13 @@ public class BulletPool : MonoBehaviour
                 return bulletsList[i];
             }
         }
-        return null;
+        return null; //politica de crecimiento = no hay balas, devuelvo null
 
     }
     
-
+    public void bulletRelease(GameObject bullet)
+    {
+        bullet.SetActive(false);
+    }
     
 }
