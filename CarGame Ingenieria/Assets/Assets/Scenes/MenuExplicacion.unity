@@ -1788,7 +1788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -233, y: 154}
+  m_AnchoredPosition: {x: -162, y: 198}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1746782176
@@ -1811,8 +1811,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "!Consigue todas las monedas anets de que las abejas malvadas frenen tus
-    ruedas\xBF"
+  m_text: "\xA1Un ejambre de abejas malvadas ha dominado el circuito!\nDestruyelas
+    con tus poderosos cohetes y reocge todas las monedas sin que te piquen.\n\xA1Que
+    nadie frene tus ruedas!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc7d2f875442ded428ef592a66a85799, type: 2}
   m_sharedMaterial: {fileID: -8866986106928187202, guid: cc7d2f875442ded428ef592a66a85799, type: 2}
@@ -1875,7 +1876,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -699.20074, w: 0}
+  m_margin: {x: -118.24616, y: 0, z: -815.88586, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

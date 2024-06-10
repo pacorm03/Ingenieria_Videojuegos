@@ -2370,7 +2370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402075267861652347, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7671914869399232036, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: m_Name
@@ -2436,7 +2436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5173586896241430561, guid: 9d0c7f5ce070c5b4c9559ef23b1baf5d, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5408027170093870450, guid: 9d0c7f5ce070c5b4c9559ef23b1baf5d, type: 3}
       propertyPath: m_Name
@@ -6463,7 +6463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402075267861652347, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7671914869399232036, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: m_Name
@@ -7445,7 +7445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402075267861652347, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7671914869399232036, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: m_Name
@@ -7599,7 +7599,7 @@ GameObject:
   - component: {fileID: 1227114516}
   m_Layer: 0
   m_Name: BulletPool
-  m_TagString: Untagged
+  m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7835,7 +7835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402075267861652347, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7671914869399232036, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: m_Name
@@ -10248,7 +10248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5173586896241430561, guid: 9d0c7f5ce070c5b4c9559ef23b1baf5d, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5408027170093870450, guid: 9d0c7f5ce070c5b4c9559ef23b1baf5d, type: 3}
       propertyPath: m_Name
@@ -10449,7 +10449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402075267861652347, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7671914869399232036, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: m_Name
@@ -11997,7 +11997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402075267861652347, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7671914869399232036, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: m_Name
@@ -13228,7 +13228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402075267861652347, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7671914869399232036, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: m_Name
@@ -13309,7 +13309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5173586896241430561, guid: 9d0c7f5ce070c5b4c9559ef23b1baf5d, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5408027170093870450, guid: 9d0c7f5ce070c5b4c9559ef23b1baf5d, type: 3}
       propertyPath: m_Name
@@ -13370,7 +13370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402075267861652347, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: velocidad
-      value: 10
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7671914869399232036, guid: 66160697eb5f89340b5c9b10af00e320, type: 3}
       propertyPath: m_Name
