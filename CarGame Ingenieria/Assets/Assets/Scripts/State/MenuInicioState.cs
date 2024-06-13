@@ -111,7 +111,7 @@ public class MenuInicioState : SceneBaseState
     void CargarJuego()
     {
         Debug.Log("Click en cargar juegos");
-        context.SetState(new JuegoSceneState());
+        context.SetState(new ExplicacionState());
     }
 
     void CargarAjustes()
