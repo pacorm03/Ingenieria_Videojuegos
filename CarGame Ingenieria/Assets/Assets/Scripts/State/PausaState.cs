@@ -11,8 +11,12 @@ public class PausaState : SceneBaseState
 
     GameObject botonVolver;
     Button botonVolverComp;
+
     GameObject botonMenuPrincipal;
     Button botonMenuPrincipalComp;
+
+    GameObject botonAjustes;
+    Button botonAjustesComp;
 
     SceneStateManager context;
     public override void EnterState(SceneStateManager scene)
@@ -45,7 +49,17 @@ public class PausaState : SceneBaseState
             botonMenuPrincipalComp = botonMenuPrincipal.GetComponent<Button>();
             botonMenuPrincipalComp.onClick.AddListener(IrAlMenuPrincipal);
         }
+        //Ajustes
+        if (botonAjustes == null)
+        {
+            botonAjustes = GameObject.Find("BotonAjustes");
+        }
+        if (botonAjustes != null)
+        {
 
+            botonAjustesComp = botonAjustes.GetComponent<Button>();
+            botonAjustesComp.onClick.AddListener(IrAjustes);
+        }
     }
 
     public override void UpdateState(SceneStateManager scene)
@@ -68,6 +82,13 @@ public class PausaState : SceneBaseState
         {
             botonMenuPrincipalComp.onClick.RemoveListener(IrAlMenuPrincipal);
         }
+
+        
+        //Ajustes
+        if (botonAjustesComp != null)
+        {
+            botonAjustesComp.onClick.RemoveListener(IrAjustes);
+        }
         menuPausa = GameObject.Find("MenuPausa");
         menuPausa.GetComponent<Opciones>().ActivarPausa(false);
     }
@@ -82,5 +103,11 @@ public class PausaState : SceneBaseState
     {
         Debug.Log("Saliendo de pausa");
         context.SetState(new MenuInicioState());
+    }
+
+    void IrAjustes()
+    {
+        Debug.Log("Saliendo de pausa");
+        context.SetState(new AjustesState());
     }
 }

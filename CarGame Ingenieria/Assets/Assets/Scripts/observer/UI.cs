@@ -28,8 +28,8 @@ public class UI : MonoBehaviour, IObserver<float>
     {
         if (tiempoTranscurridoText != null)
         {
-            float tiempo = Timer.Instance.TiempoTranscurrido();
-            tiempoTranscurridoText.text = $"Tiempo: {tiempo.ToString("F2")} segundos"; // Mostrar el tiempo con 2 decimales
+            //float tiempo = Timer.Instance.TiempoTranscurrido();
+            //tiempoTranscurridoText.text = $"Tiempo: {tiempo.ToString("F2")} segundos"; // Mostrar el tiempo con 2 decimales
         }
     }
     //metodo para actualizar la UI

@@ -34,12 +34,12 @@ public class JuegoSceneState : SceneBaseState
         if (sceneJugar.isLoaded)
         {
             //Si no hay vida = Perder
-            if (jugadorComp.vidaActual == 0)
+            if (jugadorComp.vidaActual == 4)
             {
                 scene.SetState(new PerderState());
             }
             //Si se consiguen todas las monedas = ganar
-            if (jugadorComp.contadorMonedas == 50)
+            if (jugadorComp.contadorMonedas == 2)
             {
                 scene.SetState(new GanarState());
             }

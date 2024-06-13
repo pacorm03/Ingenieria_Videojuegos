@@ -10,6 +10,9 @@ public class Opciones : MonoBehaviour
 
     public Transform pausa;
     public Transform ajustes;
+    public Transform creditos;
+    public Transform menuInicio;
+
 
 
     //Modificar volumen con slider en menú de opciones
@@ -28,5 +31,13 @@ public class Opciones : MonoBehaviour
     {
         ajustes.gameObject.SetActive(isActive);
     }
+    public void ActivarCreditos(bool isActive)
+    {
+        creditos.gameObject.SetActive(isActive);
+    }
 
+    public void ActivarMenuInicio(bool isActive)
+    {
+        menuInicio.gameObject.SetActive(isActive);
+    }
 }

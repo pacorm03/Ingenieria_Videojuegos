@@ -24,7 +24,7 @@ public class JugadorObserver : MonoBehaviour, ISubject <float>
     }
     void IniciarTemporizador()
     {
-        timer = Timer.Instance; // Obtener instancia del temporizador
+        //timer = Timer.Instance; // Obtener instancia del temporizador
         timer.ReiniciarTimer(); // Reiniciar el temporizador al inicio
     }
     void Update()
