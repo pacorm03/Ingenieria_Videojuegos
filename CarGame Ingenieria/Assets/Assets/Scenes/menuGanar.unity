@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cochesloquisimos!
+  m_text: Aventura Zumbante
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc7d2f875442ded428ef592a66a85799, type: 2}
   m_sharedMaterial: {fileID: -8866986106928187202, guid: cc7d2f875442ded428ef592a66a85799, type: 2}
@@ -1995,6 +1995,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 45ea72c449293e3489a506f5f0e55aba, type: 2}
+  pausa: {fileID: 0}
+  ajustes: {fileID: 0}
+  creditos: {fileID: 0}
+  menuInicio: {fileID: 0}
 --- !u!114 &1589503532
 MonoBehaviour:
   m_ObjectHideFlags: 0
