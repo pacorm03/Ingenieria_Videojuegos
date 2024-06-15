@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class JuegoSceneState : SceneBaseState
 {
-    GameObject menuPausa;
     Scene sceneJugar;
     GameObject jugador;
     Salud saludJugador;
-    GameObject player;
     MonedasJugador monedas;
     
     public override void EnterState(SceneStateManager scene)
@@ -39,7 +37,7 @@ public class JuegoSceneState : SceneBaseState
         //Si no hay vida = Perder
         if (saludJugador.vidaActual == 0)
         {
-           // scene.SetState(new PerderState());
+            scene.SetState(new PerderState());
         }
         //Si se consiguen todas las monedas = ganar
         if (monedas.contadorMonedas == monedas.totalMonedas)
