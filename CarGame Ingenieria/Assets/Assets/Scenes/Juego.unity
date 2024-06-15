@@ -7616,7 +7616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771cc1b505fbbd6428d2159c8c22d4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1916685415048215826, guid: dfbb08fec80e0ac4ca9f8efa96750a0a, type: 3}
+  bulletPrefab: {fileID: 4852322491696696020, guid: d8120df13f1249b418bed63d22dbbb02, type: 3}
   poolSize: 5
   bulletsList: []
 --- !u!4 &1227114517
@@ -9972,7 +9972,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contadorMonedas: 0
-  padreDeMonedas: {fileID: 0}
   totalMonedas: 0
 --- !u!114 &1575032329
 MonoBehaviour:
@@ -12886,7 +12885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contadorMonedas: 0
-  padreDeMonedas: {fileID: 2087492772}
   totalMonedas: 0
 --- !u!1 &2091584145
 GameObject:
