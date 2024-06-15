@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AbejaAzul
   m_EditorClassIdentifier: 
   <distanciaAlcance>k__BackingField: 50
-  <vida>k__BackingField: 5
+  <Maxvida>k__BackingField: 5

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AbejAmarilla
   m_EditorClassIdentifier: 
   <distanciaAlcance>k__BackingField: 20
-  <vida>k__BackingField: 1
+  <Maxvida>k__BackingField: 1
