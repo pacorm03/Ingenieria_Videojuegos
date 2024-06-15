@@ -10,7 +10,7 @@ using UnityEditor.Experimental.GraphView;
 
 public class UITimer : MonoBehaviour, IObserver<float>
 {
-    private MonedasJugador monedillas;
+    
     public Text tiempoTranscurridoText; // Asigna el texto del contador desde el inspector
     private Timer timer; // Referencia al temporizador
 
@@ -61,7 +61,7 @@ public class UITimer : MonoBehaviour, IObserver<float>
     {
 
 
-        if (monedasJugador != null && monedasJugador.contadorMonedas ==monedillas.totalMonedas)
+        if (monedasJugador != null && monedasJugador.contadorMonedas ==monedasJugador.totalMonedas)
         {
             Timer.Instance.DetenerTimer();
         }
