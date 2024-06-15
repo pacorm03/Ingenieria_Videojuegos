@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bullet Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f67e1bf87d71da740a1bc4cacdae3129, type: 3}
+      propertyPath: m_TagString
+      value: Bala
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f67e1bf87d71da740a1bc4cacdae3129, type: 3}
 --- !u!1 &4852322491696696020 stripped
@@ -115,4 +119,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d348b06e0caa649affa4d5ed732e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4852322491696696020}
