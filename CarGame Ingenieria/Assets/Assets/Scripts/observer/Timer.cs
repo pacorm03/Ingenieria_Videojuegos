@@ -9,19 +9,18 @@ public class Timer : MonoBehaviour
     private float tiempoTranscurrido = 0f;
     private bool juegoTerminado = false;
 
-    public static Timer Instance { get { return instance; } }
-
+    public static Timer Instance { get; private set; }
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
             Destroy(gameObject);
         }
-
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
