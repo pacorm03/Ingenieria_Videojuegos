@@ -41,7 +41,7 @@ public class Salud : MonoBehaviour, ISubject <float>
             puedePerderVida = false;
             Invoke("ReactivatePerderVida", tiempoDeEspera);
         }
-        else
+        if (vidaActual ==0)
         {
             //TerminarJuego();
             Debug.Log("El jugador ha muerto");
