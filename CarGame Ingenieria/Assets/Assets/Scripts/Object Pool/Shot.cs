@@ -55,9 +55,8 @@ public class Shot : MonoBehaviour
             bullet.SetActive(true); // Activa la bala
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             // Ajusta la velocidad de la bala según la velocidad del coche y la fuerza de disparo
-            // rb.velocity = spawnPoint.forward * (carRigidbody.velocity.magnitude + shotForce) * Time.fixedDeltaTime;
-            rb.velocity = carRigidbody.velocity; // Hereda la velocidad del coche
-            rb.AddForce(spawnPoint.forward * shotForce, ForceMode.Impulse);
+             rb.velocity = spawnPoint.forward * (carRigidbody.velocity.magnitude + shotForce) * Time.fixedDeltaTime;
+      
 
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.ResetLifeTimer(); // Reinicia el temporizador de vida
