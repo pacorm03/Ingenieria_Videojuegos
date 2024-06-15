@@ -244,8 +244,6 @@ MonoBehaviour:
   resistencia: 1
   velocidad: 20
   ataque: 1
-  distanciaAlcance: 20
-  vida: 1
 --- !u!54 &7171399194993310354
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -273,5 +271,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.4516373, y: 2.2767038, z: 2.7540245}
+  m_Center: {x: -0.04304886, y: 0.22709513, z: -0.6389713}

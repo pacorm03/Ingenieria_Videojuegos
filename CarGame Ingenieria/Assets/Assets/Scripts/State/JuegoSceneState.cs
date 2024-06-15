@@ -10,12 +10,14 @@ public class JuegoSceneState : SceneBaseState
     Scene sceneJugar;
     GameObject jugador;
     Salud saludJugador;
+    GameObject player;
     MonedasJugador monedas;
     
     public override void EnterState(SceneStateManager scene)
     {
         sceneJugar = SceneManager.GetSceneByBuildIndex(1);
         Debug.Log("Estado: Juego");
+
 
         if(!sceneJugar.isLoaded)
         {
@@ -28,25 +30,24 @@ public class JuegoSceneState : SceneBaseState
 
     public override void UpdateState(SceneStateManager scene)
     {
+       // Debug.Log($"Monedas:{monedas.contadorMonedas}");
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             scene.SetState(new PausaState());
         }
-        //Exit
-        if (sceneJugar.isLoaded)
+        //Si no hay vida = Perder
+        if (saludJugador.vidaActual == 0)
         {
-            //Si no hay vida = Perder
-            if (saludJugador.vidaActual == 4)
-            {
-                scene.SetState(new PerderState());
-            }
-            //Si se consiguen todas las monedas = ganar
-            if (monedas.contadorMonedas == 2)
-            {
-                Debug.Log($"monedas: {monedas.contadorMonedas}");
-                scene.SetState(new GanarState());
-            }
+           // scene.SetState(new PerderState());
         }
+        //Si se consiguen todas las monedas = ganar
+        if (monedas.contadorMonedas == monedas.totalMonedas)
+        {
+            Debug.Log($"monedas: {monedas.contadorMonedas}");
+            scene.SetState(new GanarState());
+        }
+
 
     }
 
@@ -63,7 +64,7 @@ public class JuegoSceneState : SceneBaseState
         Debug.Log($"La escena {scene.name} ya está cargada");
         jugador = GameObject.Find("Player");
         saludJugador = jugador.GetComponent<Salud>();
-
+        monedas = jugador.GetComponent<MonedasJugador>();
 
     }
 }
