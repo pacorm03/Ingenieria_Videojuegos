@@ -9972,6 +9972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contadorMonedas: 0
+  monedasPadre: {fileID: 2087492772}
   totalMonedas: 0
 --- !u!114 &1575032329
 MonoBehaviour:
@@ -12885,6 +12886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contadorMonedas: 0
+  monedasPadre: {fileID: 2087492772}
   totalMonedas: 0
 --- !u!1 &2091584145
 GameObject:
