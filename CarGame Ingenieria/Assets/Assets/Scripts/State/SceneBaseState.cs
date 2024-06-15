@@ -8,3 +8,6 @@ public abstract class SceneBaseState
 
     public abstract void Exit(SceneStateManager scene);
 }
+
+
+

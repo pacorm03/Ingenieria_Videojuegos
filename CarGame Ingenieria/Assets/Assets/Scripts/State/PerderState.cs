@@ -34,7 +34,6 @@ public class PerderState : SceneBaseState
 
     public override void UpdateState(SceneStateManager scene)
     {
-        // Actualización del estado si es necesario
     }
 
     public override void Exit(SceneStateManager scene)

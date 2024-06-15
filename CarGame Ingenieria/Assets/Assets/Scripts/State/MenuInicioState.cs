@@ -72,7 +72,7 @@ public class MenuInicioState : SceneBaseState
             InitializeMenu();
         }
     }
-
+    
     void InitializeMenu()
     {
         menuInicio = GameObject.Find("Menu");
