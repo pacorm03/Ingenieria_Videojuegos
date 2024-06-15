@@ -9984,7 +9984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c330a7713567bf4ea953052b353fcaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
 --- !u!1001 &1590493043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12360,6 +12359,7 @@ GameObject:
   - component: {fileID: 2013163535}
   - component: {fileID: 2013163534}
   - component: {fileID: 2013163533}
+  - component: {fileID: 2013163537}
   - component: {fileID: 2013163536}
   m_Layer: 0
   m_Name: CanvasTiempo
@@ -12459,10 +12459,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2013163531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819435df829460e488fe987a0fe68c51, type: 3}
+  m_Script: {fileID: 11500000, guid: cbf8f2a027677644c8a995d13d700427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoTranscurridoText: {fileID: 224233570}
+--- !u!114 &2013163537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013163531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e0ac50e88663d4f95f8657432f5e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2026203661
 PrefabInstance:
   m_ObjectHideFlags: 0

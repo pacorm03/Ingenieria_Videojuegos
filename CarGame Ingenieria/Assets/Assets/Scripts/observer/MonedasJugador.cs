@@ -7,10 +7,20 @@ public class MonedasJugador : MonoBehaviour, ISubject<float>
 {
    
     public float contadorMonedas = 0;
+    public Transform padreDeMonedas;
+    public int totalMonedas;
 
-    void Update()
+    void Start()
     {
-     
+        if (padreDeMonedas != null)
+        {
+            totalMonedas = padreDeMonedas.childCount;
+            contadorMonedas = totalMonedas; // Inicializar el contador de monedas con el total
+        }
+        else
+        {
+            Debug.LogError("Padre de las monedas no asignado.");
+        }
     }
     public void RecogerMoneda(GameObject moneda)
     {

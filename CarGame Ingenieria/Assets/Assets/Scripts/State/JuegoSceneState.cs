@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,7 @@ public class JuegoSceneState : SceneBaseState
             //Si se consiguen todas las monedas = ganar
             if (monedas.contadorMonedas == 2)
             {
+                Debug.Log($"monedas: {monedas.contadorMonedas}");
                 scene.SetState(new GanarState());
             }
         }
