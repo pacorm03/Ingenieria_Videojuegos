@@ -10,13 +10,15 @@ public class MonedasJugador : MonoBehaviour, ISubject<float>
     [SerializeField] Transform monedasPadre;
     
     public int totalMonedas;
-
+    public AudioSource coinAudioSource;
+   
     void Start()
     {
         foreach (Transform child in monedasPadre)
         {
             totalMonedas++;
         }
+       
     }
     public void RecogerMoneda(GameObject moneda)
     {
@@ -31,6 +33,11 @@ public class MonedasJugador : MonoBehaviour, ISubject<float>
             Destroy(moneda);
             NotifyObservers();
             
+        }
+        // Reproducir el sonido de la moneda
+        if (coinAudioSource != null)
+        {
+            coinAudioSource.Play();
         }
     }
 
