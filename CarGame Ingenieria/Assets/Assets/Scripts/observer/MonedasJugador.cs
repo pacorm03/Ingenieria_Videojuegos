@@ -7,12 +7,13 @@ public class MonedasJugador : MonoBehaviour, ISubject<float>
 {
    
     public float contadorMonedas = 0;
+    [SerializeField] Transform monedasPadre;
     
     public int totalMonedas;
 
     void Start()
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in monedasPadre)
         {
             totalMonedas++;
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shot : MonoBehaviour
 {
     public Transform spawnPoint; // El punto de generación de las balas
-    public float shotForce = 500f; // Reducir la fuerza de disparo para hacer que las balas se muevan más lentamente
+    public float shotForce = 10f; // Reducir la fuerza de disparo para hacer que las balas se muevan más lentamente
     public float shotRate = 0.5f; // La tasa de disparo
 
     private float shotRateTime = 0f; // Tiempo entre disparos
@@ -55,7 +55,9 @@ public class Shot : MonoBehaviour
             bullet.SetActive(true); // Activa la bala
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             // Ajusta la velocidad de la bala según la velocidad del coche y la fuerza de disparo
-            rb.velocity = spawnPoint.forward * (carRigidbody.velocity.magnitude + shotForce) * Time.fixedDeltaTime;
+            // rb.velocity = spawnPoint.forward * (carRigidbody.velocity.magnitude + shotForce) * Time.fixedDeltaTime;
+            rb.velocity = carRigidbody.velocity; // Hereda la velocidad del coche
+            rb.AddForce(spawnPoint.forward * shotForce, ForceMode.Impulse);
 
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.ResetLifeTimer(); // Reinicia el temporizador de vida
