@@ -9,20 +9,15 @@ public class AbejaFlyweight : MonoBehaviour
     [SerializeField] private AbejaDataSO extrinseco;
 
     // Intrinseco
-    public float resistencia = 1;
+    public int resistencia = 1;
     public float velocidad = 5;
-    public float ataque = 1;
-
-    // Extrinseco
-    //public float distanciaAlcance;
-    //public float vida;
-
-    
+    public int ataque = 1;
+    public int vidaActual;
 
     void Start()
     {
-        jugador = GameObject.FindWithTag("Player").transform; // Asegúrate de que el jugador tenga la etiqueta "Player"
-        //SetValues(); // Llama a SetValues para inicializar los valores extrínsecos
+        jugador = GameObject.FindWithTag("Player").transform;
+        vidaActual = extrinseco.Maxvida;
     }
 
     void Update()
@@ -36,9 +31,11 @@ public class AbejaFlyweight : MonoBehaviour
             Patrullar();
         }
 
-        transform.Rotate(Vector3.up, 100 * Time.deltaTime); // Ajusta la velocidad de rotación según sea necesario
+        transform.Rotate(Vector3.up, 100 * Time.deltaTime); // Ajusta la velocidad de rotacion segun sea necesario
 
         float distanciaAlJugador = Vector3.Distance(transform.position, jugador.position);
+
+
         if (distanciaAlJugador < extrinseco.distanciaAlcance)
         {
             persiguiendo = true;
@@ -65,27 +62,27 @@ public class AbejaFlyweight : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Abeja colisiona con el jugador");
-            Salud saludJugador = other.GetComponent<Salud>();
-            if (saludJugador != null)
+            Salud salud = other.GetComponent<Salud>();
+            if (salud != null)
             {
-                saludJugador.PerderVida();
-                PerderVida();
+                salud.PerderVida();
+                PerderVidaAbeja();
             }
         }
         else if (other.CompareTag("Bala"))
         {
             Debug.Log("Abeja ha sido golpeada por una bala");
-            PerderVida();
+            PerderVidaAbeja();
         }
     }
 
-    void PerderVida()
+    void PerderVidaAbeja()
     {
-        //extrinseco.vida--;
-        //if (extrinseco.vida <= 0)
-        //{
-        //    Morir();
-        //}
+        vidaActual--;
+        if (vidaActual <= 0)
+        {
+            Morir();
+        }
     }
 
     void Morir()

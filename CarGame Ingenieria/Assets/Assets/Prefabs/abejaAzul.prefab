@@ -601,8 +601,6 @@ MonoBehaviour:
   resistencia: 1
   velocidad: 20
   ataque: 1
-  distanciaAlcance: 50
-  vida: 5
 --- !u!54 &6377520207545183683
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -630,8 +628,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.2039795, y: 2.520794, z: 2.7521362}
+  m_Center: {x: -0.054595947, y: 0.28287888, z: -0.45500183}
 --- !u!1 &6100630309315294882
 GameObject:
   m_ObjectHideFlags: 0
