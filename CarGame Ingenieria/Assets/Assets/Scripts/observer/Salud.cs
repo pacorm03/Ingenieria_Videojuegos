@@ -10,23 +10,14 @@ public class Salud : MonoBehaviour, ISubject <float>
     public float vidaActual;
     private bool puedePerderVida = true;
     public float tiempoDeEspera = 2.0f; // Tiempo de espera entre pérdidas de vida
-
-
-    //private Timer timer; // Referencia al temporizador
-
+    public AudioSource perderVidaSound;
     void Start()
     {
         vidaActual = maxVida;
 
-        // Invocar la función para iniciar el temporizador después de 3 segundos
-        //Invoke("IniciarTemporizador", 3f);
-       
+      
     }
-    /*void IniciarTemporizador()
-    {
-        //timer = Timer.Instance; // Obtener instancia del temporizador
-        timer.ReiniciarTimer(); // Reiniciar el temporizador al inicio
-    }*/
+    
     void Update()
     {
       
@@ -40,6 +31,11 @@ public class Salud : MonoBehaviour, ISubject <float>
             NotifyObservers();
             puedePerderVida = false;
             Invoke("ReactivatePerderVida", tiempoDeEspera);
+            // Reproducir el sonido de la moneda
+            if (perderVidaSound != null)
+            {
+                perderVidaSound.Play();
+            }
         }
         if (vidaActual ==0)
         {
@@ -51,21 +47,7 @@ public class Salud : MonoBehaviour, ISubject <float>
     {
         puedePerderVida = true;
     }
-    void TerminarJuego()
-    {
-        
-        //timer.DetenerTimer(); // Detener el temporizador
-        //MostrarResultado();
-        NotifyObservers(); // Notificar a los observadores
-    }
-
-    /*void MostrarResultado()
-    {
-        float tiempo = timer.TiempoTranscurrido();
-        Debug.Log($"El juego ha terminado en {tiempo} segundos.");
-    }*/
-
-    
+ 
     //DETECTOR DE COLISIONES
     public void OnTriggerEnter(Collider other)
     {
@@ -77,7 +59,6 @@ public class Salud : MonoBehaviour, ISubject <float>
     
     }
     
-   
     //PATRON OBSERVER (la vida del jugador es uno de los sujetos observados)
     //creamos una lista de observers para almacenarlos
     private List<IObserver<float>> _observers = new List<IObserver<float>>();

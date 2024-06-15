@@ -59,8 +59,6 @@ public class UITimer : MonoBehaviour, IObserver<float>
 
     public void UpdateObserver(float value)
     {
-
-
         if (monedasJugador != null && monedasJugador.contadorMonedas ==monedasJugador.totalMonedas)
         {
             Timer.Instance.DetenerTimer();
@@ -70,7 +68,6 @@ public class UITimer : MonoBehaviour, IObserver<float>
         {
             Timer.Instance.DetenerTimer();
         }
-
 
     }
 
