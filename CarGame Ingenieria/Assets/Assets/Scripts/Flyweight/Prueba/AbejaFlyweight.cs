@@ -65,10 +65,10 @@ public class AbejaFlyweight : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Abeja colisiona con el jugador");
-            JugadorObserver jugadorObserver = other.GetComponent<JugadorObserver>();
-            if (jugadorObserver != null)
+            Salud saludJugador = other.GetComponent<Salud>();
+            if (saludJugador != null)
             {
-                jugadorObserver.PerderVida();
+                saludJugador.PerderVida();
                 PerderVida();
             }
         }

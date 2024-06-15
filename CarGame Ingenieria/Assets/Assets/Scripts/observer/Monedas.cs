@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Patterns.Observer.Interfaces;
 using UnityEngine;
 
-public class MonedaObserver : MonoBehaviour
+public class Monedas : MonoBehaviour
 {
     public float velocidadRotacion = 100f; // Velocidad de rotación ajustable desde el Inspector
     public bool haSidoRecogida = false;
+    
 
     void Update()
     {
@@ -15,8 +17,5 @@ public class MonedaObserver : MonoBehaviour
             transform.Rotate(Vector3.up * velocidadRotacion * Time.deltaTime);
         }
     }
-    public void Recoger()
-    {
-        haSidoRecogida = true;
-    }
+
 }

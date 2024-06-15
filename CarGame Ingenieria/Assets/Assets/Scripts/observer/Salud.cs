@@ -4,107 +4,88 @@ using Patterns.Observer.Interfaces;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class JugadorObserver : MonoBehaviour, ISubject <float>
+public class Salud : MonoBehaviour, ISubject <float>
 {   
     [SerializeField]public float maxVida = 5;
     public float vidaActual;
-    public float tiempoDeEspera = 2; //tiempo que espera para volver a detectar la colision 
-                                  // para que el jugador tenga tiempo para reaccionar antes de que le quite mas corazones el mismo enemigo
-    public float tiempoTranscurrido;
-    public int contadorMonedas = 0;
-    private Timer timer; // Referencia al temporizador
+    private bool puedePerderVida = true;
+    public float tiempoDeEspera = 2.0f; // Tiempo de espera entre pérdidas de vida
+
+
+    //private Timer timer; // Referencia al temporizador
 
     void Start()
     {
         vidaActual = maxVida;
 
         // Invocar la función para iniciar el temporizador después de 3 segundos
-        Invoke("IniciarTemporizador", 3f);
+        //Invoke("IniciarTemporizador", 3f);
        
     }
-    void IniciarTemporizador()
+    /*void IniciarTemporizador()
     {
         //timer = Timer.Instance; // Obtener instancia del temporizador
         timer.ReiniciarTimer(); // Reiniciar el temporizador al inicio
-    }
+    }*/
     void Update()
     {
       
     }
     public void PerderVida()
     {
-        if (vidaActual > 0)
+        if (vidaActual > 0 && puedePerderVida)
         {
             vidaActual--;
             //cuando pierde vida notifica a los observadores
             NotifyObservers();
+            puedePerderVida = false;
+            Invoke("ReactivatePerderVida", tiempoDeEspera);
         }
         else
         {
+            //TerminarJuego();
             Debug.Log("El jugador ha muerto");
         }
     }
-    public void RecogerMoneda(GameObject moneda)
+    private void ReactivatePerderVida()
     {
-        MonedaObserver monedaObserver = moneda.GetComponent<MonedaObserver>();
-        //comprobamos si ya ha recogido la moneda para evitar sumar monedas de mas
-        if (monedaObserver != null && !monedaObserver.haSidoRecogida)
-        {
-            contadorMonedas++;
-            monedaObserver.Recoger();
-
-            // cuando recoge una moneda lo notifica a los observadores
-            NotifyObservers();
-            Destroy(moneda);
-        }
+        puedePerderVida = true;
     }
     void TerminarJuego()
     {
         
-        timer.DetenerTimer(); // Detener el temporizador
-        MostrarResultado();
+        //timer.DetenerTimer(); // Detener el temporizador
+        //MostrarResultado();
         NotifyObservers(); // Notificar a los observadores
     }
 
-    void MostrarResultado()
+    /*void MostrarResultado()
     {
         float tiempo = timer.TiempoTranscurrido();
         Debug.Log($"El juego ha terminado en {tiempo} segundos.");
-    }
+    }*/
 
+    
     //DETECTOR DE COLISIONES
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Abeja")) //si choca con la abeja pierde vida
-        {   
-            Debug.Log("choque detectado");
-            
-            if (Time.time - tiempoTranscurrido >= tiempoDeEspera)
-            {
-                
-                PerderVida();
-                Debug.Log("menos  una vida");
-                tiempoTranscurrido = Time.time; //actualizar el tiempo transcurrido
-            }
-                
-        }
-
-        if (other.CompareTag("Moneda"))
         {
-            Debug.Log("Moneda recogida");
-            RecogerMoneda(other.gameObject);
+            Debug.Log("choque detectado");
+            PerderVida();
         }
+    
     }
     
    
-    //PATRON OBSERVER (el jugador es el sujeto observado)
+    //PATRON OBSERVER (la vida del jugador es uno de los sujetos observados)
     //creamos una lista de observers para almacenarlos
     private List<IObserver<float>> _observers = new List<IObserver<float>>();
 
     public void AddObserver(IObserver<float> observer)
     {
         _observers.Add(observer); //añade el observador
-        Debug.Log("observador añadido");
+        Debug.Log("observador añadido al sujeto Salud");
     }
     public void RemoveObserver(IObserver<float> observer)
     {
@@ -117,7 +98,7 @@ public class JugadorObserver : MonoBehaviour, ISubject <float>
         {
             Debug.Log("actualizado en jugadorObserver");
             //verifica hay algun observador en la lista, si lo hay, le pasa el valor de la vida que va actualizandose
-            observer?.UpdateObserver(vidaActual, contadorMonedas, timer.TiempoTranscurrido());
+            observer?.UpdateObserver(vidaActual);
         }
 
     }

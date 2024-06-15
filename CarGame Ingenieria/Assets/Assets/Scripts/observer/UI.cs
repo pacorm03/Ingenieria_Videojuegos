@@ -11,29 +11,32 @@ public class UI : MonoBehaviour, IObserver<float>
 {
     public int maxVida;
     public GameObject[] corazones; //array para gestionar la visibilidad de los corazones
-    public Text contadorMonedasText; // Asigna el texto del contador desde el inspector
     public Text tiempoTranscurridoText; // Asigna el texto del contador desde el inspector
-    private JugadorObserver jugadorObserver;
+
     private void Awake()
     {
         GameObject player = GameObject.FindWithTag("Player");
-        //añadimos la ui a la lista de observadores del sujeto player
-        JugadorObserver jugadorObserver = player.GetComponent<JugadorObserver>();
-        maxVida= (int)jugadorObserver.maxVida; //maxima vida del jugador preestablecida en su clase
+        
+        Salud saludJugador = player.GetComponent<Salud>();
+         
+        maxVida= (int)saludJugador.maxVida; //maxima vida del jugador preestablecida en su clase
         Debug.Log($"Inicializando vidaActual con maxVida = {maxVida}");
-        jugadorObserver.AddObserver(this);
+
+        //añadimos la ui a la lista de observadores del sujeto player
+        saludJugador.AddObserver(this);
+      
         
     }
     void Update()
     {
-        if (tiempoTranscurridoText != null)
+        /*if (tiempoTranscurridoText != null)
         {
             //float tiempo = Timer.Instance.TiempoTranscurrido();
             //tiempoTranscurridoText.text = $"Tiempo: {tiempo.ToString("F2")} segundos"; // Mostrar el tiempo con 2 decimales
-        }
+        }*/
     }
     //metodo para actualizar la UI
-    public void UpdateObserver(float data, float data1, float data2) //recibe el valor de la vida
+    public void UpdateObserver(float data) //recibe el valor de la vida
     {
         
         for (int i = 0; i < maxVida; i++) 
@@ -42,11 +45,7 @@ public class UI : MonoBehaviour, IObserver<float>
             corazones[i].SetActive(i < data);
             Debug.Log("Observer actualizado");
         }
-        if (contadorMonedasText != null)//actualizar contadador de monedas
-        {
-            contadorMonedasText.text = "Monedas: " + data1.ToString();
-        }
-
+     
     }
 
 }

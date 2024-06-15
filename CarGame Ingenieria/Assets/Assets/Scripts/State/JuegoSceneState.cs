@@ -8,7 +8,8 @@ public class JuegoSceneState : SceneBaseState
     GameObject menuPausa;
     Scene sceneJugar;
     GameObject jugador;
-    JugadorObserver jugadorComp;
+    Salud saludJugador;
+    MonedasJugador monedas;
     
     public override void EnterState(SceneStateManager scene)
     {
@@ -34,12 +35,12 @@ public class JuegoSceneState : SceneBaseState
         if (sceneJugar.isLoaded)
         {
             //Si no hay vida = Perder
-            if (jugadorComp.vidaActual == 4)
+            if (saludJugador.vidaActual == 4)
             {
                 scene.SetState(new PerderState());
             }
             //Si se consiguen todas las monedas = ganar
-            if (jugadorComp.contadorMonedas == 2)
+            if (monedas.contadorMonedas == 2)
             {
                 scene.SetState(new GanarState());
             }
@@ -59,7 +60,7 @@ public class JuegoSceneState : SceneBaseState
     {
         Debug.Log($"La escena {scene.name} ya está cargada");
         jugador = GameObject.Find("Player");
-        jugadorComp = jugador.GetComponent<JugadorObserver>();
+        saludJugador = jugador.GetComponent<Salud>();
 
 
     }

@@ -2,6 +2,6 @@ namespace Patterns.Observer.Interfaces
 {
     public interface IObserver<T>
     {
-        public void UpdateObserver(T data, T data1, T data2);
+        public void UpdateObserver(T data);
     }
 }
